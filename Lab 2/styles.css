@@ -1,0 +1,46 @@
+.head {
+    padding: 5px;
+    border-style: none;
+    background-color: black;
+    color: white;
+    /*margin: 10px;*/
+}
+
+.head a {
+    text-decoration: none;
+
+    float: right;
+
+    font-size: 32px;
+    color: black;
+    background-color: white;
+
+    border-style: solid;
+    border-color: green;
+
+    padding: 10px;
+    margin: 8px;
+}
+
+.head a:hover {
+    color: white;
+    background-color: green;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box {
+    /*float: left;*/
+    /*width: 66.66%;*/
+    padding: 20px;
+    font-size: 32px;
+    margin: 10px;
+}
+
+.box::after{
+    content: "";
+    clear: both;
+    display: table;
+}

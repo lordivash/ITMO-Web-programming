@@ -1,0 +1,46 @@
+.head {
+    padding: 5px;
+
+    border-style: none;
+    background-color: white;
+    color: darkblue;
+    /*margin: 10px;*/
+}
+
+a {
+    text-decoration: none;
+
+    font-size: 32px;
+    color: black;
+    background-color: white;
+
+    border-style: solid;
+    border-color: green;
+    border-radius: 10px;
+
+    padding: 10px;
+    margin: 8px;
+}
+
+a:hover {
+    color: white;
+    background-color: green;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.box {
+
+    background-color: gainsboro;
+    padding: 0px;
+    font-size: 32px;
+    margin: 10px;
+}
+
+.box::after{
+    content: "";
+    clear: both;
+    display: table;
+}

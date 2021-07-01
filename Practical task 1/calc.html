@@ -1,0 +1,150 @@
+<html>
+	<head>
+	</head>
+
+	<body>
+		<div id="calc" class="calc">
+			<input id="calc__input" class="calc__input" type="text" placeholder="0/0"/>
+			<div class="calc__btns">
+
+			</div>
+		</div>
+		<script>
+
+			class Calc {
+				constructor () {
+					if (Calc.instance)
+						return Calc.instance
+					else
+						Calc.prototype.instance = this
+
+					this.calc = document.querySelector("#calc")
+					this.ci = document.querySelector("#calc__input")
+
+					this.mathOperation = {
+						'+': (a, b) => a + b,
+						'-': (a, b) => a - b,
+						'/': (a, b) => a / b,
+						'*': (a, b) => a * b
+					}
+
+					this.displayBtn()
+					this.toZero()
+				}
+
+				toZero () {
+					this.answer = 0
+					this.ci.value = ""
+				}
+
+				getAnswer () {
+					const regexp = /[\+\-\/\*]/gi
+					const numbers = this.ci.value.split(regexp)
+					const operations = this.ci.value.match(regexp)
+					let answer = numbers.shift()
+					let number = ''
+					let operation = ''
+					while (numbers.length > 0) {
+						number = numbers.shift()
+						operation = operations.shift()
+						if (number === "" && operations[0] === "-") {
+							number = "-" + numbers.shift()
+							operations.splice(1, 1)
+						}
+						answer = this.mathOperation[operation](Number.parseFloat(answer), Number.parseFloat(number))
+					}
+					return answer
+				}
+
+				displayBtnInput(input) {
+					this.ci.value += input
+				}
+
+				displayAnswer () {
+					this.ci.value = this.getAnswer()
+				}
+
+				displayBtn () {
+					const cbtns = document.querySelector('.calc__btns')
+
+					let bm = ""
+					for (let i = 1; i <= 9; i++)
+						bm += `<div class="calc__btn btn__number btn__${i}" onclick="calcObj.displayBtnInput('${i}')">${i}</div>`
+					bm += `<div class="calc__btn btn__number btn__0" onclick="calcObj.displayBtnInput('0')">0</div>`
+					cbtns.innerHTML += `<div class="btn__numbers">${bm}</div>`
+
+					bm = ""
+					for (let i in this.mathOperation)
+						bm += `<div class="calc__btn btn__operation btn__${i}" onclick="calcObj.displayBtnInput('${i}')">${i}</div>`
+					bm += `<div class="calc__btn btn__operation btn__=" onclick="calcObj.displayAnswer()">=</div>`
+
+					cbtns.innerHTML += `<div class="btn__operations">${bm}</div>`
+				}
+			}
+			const calcObj = new Calc()
+		</script>
+		<style>
+			.calc {
+				display: grid;
+				width: 400px;
+				height: 600px;
+				margin: 50px auto;
+				box-shadow: 4px 4px 10px 0 lightgray;
+				border-radius: 20px;
+				padding: 20px;
+				grid-template-areas:
+						"calc__input"
+						"calc__btns";
+				grid-template-rows: 1fr 9fr;
+				overflow: hidden;
+				row-gap: 20px;
+			}
+			.calc__input {
+				grid-area: calc__input;
+				border-radius: 15px;
+				padding: 5px;
+				outline: none;
+				border: none;
+				background-color: #f9f9f9;
+			}
+			.calc__btns {
+				display: grid;
+				grid-area: calc__btns;
+				grid-template-areas:
+						"btn__numbers btn__operations";
+				grid-template-columns: 3fr 1fr;
+			}
+			.calc__btn {
+				margin: 5px;
+				box-shadow: 2px 2px 4px 0 lightgray;
+				border-radius: 5px;
+				text-align: center;
+				line-height: 100px;
+				font-size: 30px;
+				color: gray;
+				font-family: Roboto;
+				text-shadow: 1px 1px 2px lightgray;
+			}
+			.calc__btn:active,
+			.calc__btn:focus {
+				box-shadow: inset 2px 2px 4px 0 lightgray;
+			}
+			.btn__operation {
+				background-color: orange;
+				color: white;
+			}
+			.btn__numbers {
+				display: grid;
+				grid-area: btn__numbers;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr 1fr;
+				place-content: center;
+			}
+			.btn__operations {
+				display: grid;
+				grid-area: btn__operations;
+				grid-template-rows: repeat(5, 1fr);
+			}
+		</style>
+	</body>
+</html>

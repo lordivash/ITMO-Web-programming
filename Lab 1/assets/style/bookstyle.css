@@ -1,0 +1,23 @@
+.book {
+    display: flex;
+    justify-content: space-around;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+}
+
+.book__cover img {
+    max-width: 300px;
+}
+
+.book__description {
+    max-width: 500px;
+}
+
+.main__link {
+    position: fixed;
+    bottom: 10px;
+    background-color: whitesmoke;
+    border: 1px solid gray;
+    padding: 5px;
+}

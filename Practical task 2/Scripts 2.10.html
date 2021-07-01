@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scripts 2.10</title>
+
+    <!--Script-->
+    <script language="JavaScript">
+        function changeColor(item){
+            item.style.color = '#00FF00'
+        }
+    </script>
+</head>
+
+<body>
+<!--Script-->
+<script>
+for(var i = 0; i<40; i++){
+    for(var j = 0; j<20; j++){
+        document.write('<a href="http://google.com" onmouseover="changeColor(this)">Hi Google</a>')
+    }
+    document.write('<br>')
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+.header{
+    background-color: gray;
+    color: wheat;
+    text-align: center;
+}
+
+.books{
+    background-color: #EEEEEE;
+    font-size: 150%;
+}
+
+A{
+    color: blue;
+}
+
+.voteform{
+    font-size: 120%;
+}
+
+.voteform input[type=submit]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 20px 110px;
+    font-size: 100%
+}
+
+.voteform input[type=submit]:hover{
+    background-color: green;
+}

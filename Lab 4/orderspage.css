@@ -1,0 +1,57 @@
+body {
+    margin: 0px;
+    background-color: lightblue;
+}
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.head {
+    padding: 5px;
+    margin-bottom: 20px;
+
+    border-bottom-style: solid;
+    background-color: white;
+    color: darkblue;
+    /*margin: 10px;*/
+}
+
+.order {
+    width:50%;
+    margin: auto;
+
+    font-size: 24px;
+}
+
+.order tr, th, td {
+    border: 4px solid lightblue;
+}
+
+.order table td, th {
+    padding: 10px
+}
+
+.order tr:hover {
+    background-color: lightgray;
+}
+
+button {
+    text-decoration: none;
+
+    font-size: 24px;
+    color: black;
+    background-color: white;
+
+    border: 1px solid black;
+
+    padding: 10px;
+}
+
+button:hover {
+    color: white;
+    background-color: green;
+}

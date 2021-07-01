@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make an order</title>
+    <link rel="stylesheet" href="orderspage.css">
+    <script src="orderscripts.js"></script>
+</head>
+
+<body>
+<div class="test" id="test">
+</div>
+
+<div class="head">
+    <h1 style="margin-left: 20px">Quiet Desk</h1>
+</div>
+
+<div class="order">
+    <table id="ordertable">
+        <tr>
+            <th style="background-color: dodgerblue; color: white">Товар</th>
+            <th style="background-color: dodgerblue; color: white">Цена (руб.)</th>
+        </tr>
+        <tr onclick="includeOrder(this)">
+            <td>Торговый советник (АТС)</td>
+            <td>5000</td>
+        </tr>
+        <tr onclick="includeOrder(this)">
+            <td>Индикатор</td>
+            <td>3000</td>
+        </tr>
+        <tr onclick="includeOrder(this)">
+            <td>Скрипт</td>
+            <td>1500</td>
+        </tr>
+        <tr onclick="includeOrder(this)">
+            <td>Онлайн консультация (1 час)</td>
+            <td>2500</td>
+        </tr>
+    </table>
+
+    <p id="cost" style="padding: 10px;"></p>
+
+    <table id="purchasingtable" style="width: 100%;">
+        <tr>
+            <th style="background-color: dodgerblue; color: white">Товар</th>
+            <th style="background-color: dodgerblue; color: white">Цена (руб.)</th>
+        </tr>
+    </table>
+
+    <form>
+            <button type="submit" style="margin-left: 4px">Заказать</button>
+    </form>
+</div>
+
+</body>
+</html>
